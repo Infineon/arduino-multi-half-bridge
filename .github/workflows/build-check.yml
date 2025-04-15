@@ -12,7 +12,7 @@ on:
     branches:
       - '*'
   schedule:
-    - cron: '30 3 1-7 * 5' # Run on the first Friday of every month at 3:30 AM UTC
+    - cron: '30 3 * * 5' # Run every Friday at 3:30 AM UTC
       
 jobs:
   build-examples:
