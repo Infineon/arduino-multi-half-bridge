@@ -301,6 +301,21 @@ void Tle94112::init(void)
 /*! \brief time in milliseconds to wait for chipselect signal raised */
 #define TLE94112_CS_RISETIME        2
 
+void Tle94112::directWriteReg(uint8_t reg, uint8_t data)
+{
+	TLE94112_LOG_MSG(__FUNCTION__);
+	
+	uint8_t address = reg | TLE94112_CMD_WRITE;
+	uint8_t byte0;
+	uint8_t byte1;
+
+	cs->disable();
+	sBus->transfer(address, byte0);
+	sBus->transfer(data, byte1);
+	cs->enable();
+	timer->delayMilli(TLE94112_CS_RISETIME);
+}
+
 void Tle94112::writeReg(uint8_t reg, uint8_t mask, uint8_t shift, uint8_t data)
 {
 	uint8_t address = mCtrlRegAddresses[reg];
