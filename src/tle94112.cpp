@@ -13,7 +13,18 @@
 
 using namespace tle94112;
 
+/*! \brief SPI address commands */
+#define TLE94112_CMD_WRITE          0x80;
+#define TLE94112_CMD_CLEAR          0x80;
+
 #define TLE94112_STATUS_INV_MASK    (Tle94112::TLE_POWER_ON_RESET)
+
+/*! \brief time in milliseconds to wait for chipselect signal raised */
+#define TLE94112_CS_RISETIME        2
+
+/*! \brief micro rise time to wait for chipselect signal raised */
+#define TLE94112_CS_MICRO_RISETIME  250
+
 
 Tle94112::Tle94112(void)
 {
@@ -268,14 +279,6 @@ void Tle94112::init(void)
 
 }
 
-/*! \brief SPI address commands */
-#define TLE94112_CMD_WRITE          0x80;
-#define TLE94112_CMD_CLEAR          0x80;
-
-#define TLE94112_STATUS_INV_MASK    (Tle94112::TLE_POWER_ON_RESET)
-
-/*! \brief time in milliseconds to wait for chipselect signal raised */
-#define TLE94112_CS_RISETIME        2
 
 void Tle94112::directWriteReg(uint8_t reg, uint8_t data)
 {
@@ -289,7 +292,7 @@ void Tle94112::directWriteReg(uint8_t reg, uint8_t data)
 	sBus->transfer(address, byte0);
 	sBus->transfer(data, byte1);
 	cs->enable();
-	timer->delayMilli(TLE94112_CS_RISETIME);
+	timer->delayMicro(TLE94112_CS_MICRO_RISETIME);
 }
 
 void Tle94112::writeReg(uint8_t reg, uint8_t mask, uint8_t shift, uint8_t data)
