@@ -23,7 +23,7 @@ using namespace tle94112;
 #define TLE94112_CS_RISETIME        2
 
 /*! \brief micro rise time to wait for chipselect signal raised */
-#define TLE94112_CS_MICRO_RISETIME  250
+#define TLE94112_CS_MICRO_RISETIME  150
 
 
 Tle94112::Tle94112(void)
@@ -333,7 +333,7 @@ uint8_t Tle94112::readStatusReg(uint8_t reg, uint8_t mask, uint8_t shift)
 	sBus->transfer(address,byte0);
 	sBus->transfer(0xFF,received);
 	cs->enable();
-	timer->delayMilli(TLE94112_CS_RISETIME);
+	timer->delayMicro(TLE94112_CS_MICRO_RISETIME);
 
 	received = (received & mask) >> shift;
 
@@ -353,5 +353,5 @@ void Tle94112::clearStatusReg(uint8_t reg)
 	sBus->transfer(address,byte0);
 	sBus->transfer(0,byte1);
 	cs->enable();
-	timer->delayMilli(TLE94112_CS_RISETIME);
+	timer->delayMicro(TLE94112_CS_MICRO_RISETIME);
 }
