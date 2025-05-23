@@ -100,7 +100,7 @@
    motorSet(1, LL_HH, 50);
    delay(1000);
  
-   Serial.print("backward / forward ");
+   Serial.println("backward / forward ");
    motorSet(0, LL_HH, 255);
    motorSet(1, HH_LL, 255);
    delay(1000);
