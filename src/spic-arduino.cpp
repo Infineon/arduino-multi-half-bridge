@@ -73,7 +73,7 @@ Error_t SPICIno::init()
 /**
  * @brief Deinitialize the SPIC
  *
- * This function deinitializes the chosen spi channel.
+ * This function deinitialize the chosen spi channel.
  *
  * @return      Error_t
  */
