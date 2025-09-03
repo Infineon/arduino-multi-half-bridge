@@ -1,5 +1,5 @@
 /*!
- * \name        basicTest
+ * \name        basicTest1
  * \author      Infineon Technologies AG
  * \copyright   2021 Infineon Technologies AG
  * \brief       This example runs a basic controller test with one attached motor on the TLE94112 shield
