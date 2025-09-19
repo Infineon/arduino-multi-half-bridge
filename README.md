@@ -1,8 +1,7 @@
-[![Compile examples](https://github.com/Infineon/arduino-multi-half-bridge/actions/workflows/compile_examples.yml/badge.svg)]
-[![Check links](https://github.com/Infineon/XMC-for-Arduino/actions/workflows/check_links.yml/badge.svg)](https://github.com/Infineon/XMC-for-Arduino/actions/workflows/check_links.yml)
-
-
 # Multi Half-Bridge Arduino Library
+
+[![Compile examples](https://github.com/Infineon/arduino-multi-half-bridge/actions/workflows/compile_examples.yml/badge.svg)]
+[![Check links](https://github.com/Infineon/arduino-multi-half-bridge/actions/workflows/check_links.yml/badge.svg)](https://github.com/Infineon/arduino-multi-half-bridge/actions/workflows/check_links.yml)
 
 Arduino library of Infineon's Multi Half-Bridge IC controllers.
 
